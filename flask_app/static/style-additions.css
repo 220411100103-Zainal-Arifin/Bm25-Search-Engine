@@ -1,0 +1,119 @@
+/* MODIFIKASI: Styling untuk komponen knowledge panel */
+.knowledge-panel {
+  background-color: #fff;
+  border: 1px solid #dfe1e5;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 30px;
+  max-width: 450px;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.08);
+}
+
+.knowledge-panel h3 {
+  color: #202124;
+  font-size: 20px;
+  margin: 0 0 12px 0;
+  font-weight: normal;
+}
+
+.knowledge-content {
+  color: #3c4043;
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.knowledge-content p {
+  margin: 0 0 12px 0;
+}
+
+.knowledge-attribute {
+  margin: 8px 0;
+  display: flex;
+}
+
+.attribute-label {
+  font-weight: 500;
+  color: #202124;
+  margin-right: 8px;
+  min-width: 120px;
+}
+
+.knowledge-source {
+  color: #70757a;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+/* MODIFIKASI: Styling untuk panel tidak ditemukan hasil */
+.no-results {
+  padding: 20px 0;
+  max-width: 600px;
+}
+
+.no-results h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #202124;
+  margin: 0 0 16px;
+}
+
+.no-results p {
+  font-size: 15px;
+  margin: 16px 0 8px;
+  color: #202124;
+}
+
+.no-results ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.no-results li {
+  margin: 8px 0;
+  color: #3c4043;
+}
+
+/* Related searches removed */
+
+/* Navigation removed */
+
+.footer-info {
+  color: #70757a;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* MODIFIKASI: Media queries untuk responsivitas halaman hasil */
+@media (max-width: 768px) {
+  .search-results {
+    padding-left: 0;
+  }
+
+  .search-results-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-results-header .logo {
+    margin-bottom: 15px;
+  }
+
+  .search-results-header .search-box {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .knowledge-panel {
+    max-width: 100%;
+  }
+}
+
+/* MODIFIKASI: Styling untuk ikon navigasi tambahan */
+.news-nav-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235f6368" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path></svg>');
+}
+
+.video-nav-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235f6368" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>');
+}

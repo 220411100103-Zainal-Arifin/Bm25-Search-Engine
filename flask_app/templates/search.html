@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- MODIFIKASI: Judul halaman dinamis yang menampilkan query pencarian -->
+    <title>{{ query }} - Hasil Pencarian</title>
+    <!-- MODIFIKASI: Menggunakan Flask url_for untuk mengelola path statis dengan benar -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- MODIFIKASI: Header dengan kotak pencarian yang lebih kecil -->
+      <div class="search-results-header">
+        <!-- MODIFIKASI: Logo yang konsisten dengan halaman utama -->
+        <div class="logo">
+          <a href="/" class="logo-link">
+            <span class="logo-main">BM25</span
+            ><span class="logo-secondary">Search</span>
+          </a>
+        </div>
+        <!-- MODIFIKASI: Kotak pencarian yang sudah terisi dengan query sebelumnya -->
+        <div class="search-box">
+          <form action="/search" method="GET" class="search-form">
+            <div class="input-wrapper">
+              <div class="search-icon"></div>
+              <input
+                type="text"
+                name="q"
+                class="search-input"
+                value="{{ query }}"
+                required
+              />
+            </div>
+            <button type="submit" class="search-button">Cari</button>
+          </form>
+        </div>
+      </div>
+      <!-- MODIFIKASI: Container untuk hasil pencarian -->
+      <div class="search-results">
+        <!-- MODIFIKASI: Statistik hasil pencarian untuk informasi pengguna -->
+        <div class="search-stats">
+          {{ results|length }} hasil untuk <strong>"{{ query }}"</strong>
+        </div>
+
+        <!-- MODIFIKASI: Conditional rendering berdasarkan keberadaan hasil -->
+        {% if results %}
+
+        <!-- MODIFIKASI: Iterasi melalui hasil pencarian untuk menampilkan tiap dokumen -->
+        {% for result in results %}
+        <div class="result">
+          <!-- MODIFIKASI: Judul dokumen dengan link ke sumber asli -->
+          <div class="result-title">
+            <a href="{{ result.link }}" target="_blank">{{ result.title }}</a>
+          </div>
+          <!-- MODIFIKASI: URL dokumen untuk referensi -->
+          <div class="result-url">{{ result.link }}</div>
+          <!-- MODIFIKASI: Cuplikan konten untuk preview dokumen -->
+          <div class="result-snippet">
+            {{ result.snippet }}
+            <div class="result-score">
+              Skor BM25: {{ result.score|round(4) }}
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <!-- MODIFIKASI: Tampilan alternatif saat tidak ada hasil yang ditemukan -->
+        <div class="no-results">
+          <h2>Tidak ditemukan hasil untuk "{{ query }}"</h2>
+          <p>Saran:</p>
+          <!-- MODIFIKASI: Saran untuk membantu pengguna mendapatkan hasil yang lebih baik -->
+          <ul>
+            <li>Periksa ejaan kata kunci pencarian Anda</li>
+            <li>Coba kata kunci yang berbeda</li>
+            <li>Coba kata kunci yang lebih umum</li>
+            <li>Coba dengan kata kunci yang lebih sederhana</li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Footer dihapus untuk tampilan yang lebih minimalis -->
+  </body>
+</html>

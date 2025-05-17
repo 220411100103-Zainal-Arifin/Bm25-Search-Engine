@@ -1,0 +1,54 @@
+<!-- 
+MODIFIKASI: Template untuk halaman utama aplikasi pencarian BM25
+Template ini menampilkan halaman pencarian yang clean dan user-friendly
+dengan kotak pencarian yang menonjol di tengah halaman
+-->
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BM25 Search Engine</title>
+    <!-- MODIFIKASI: Menggunakan Flask url_for untuk mengelola path statis dengan benar -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <meta name="description" content="Pencarian dokumen cepat dan akurat dengan algoritma BM25">
+  </head>
+  <body>    <div class="container search-container">
+      <div class="hero-section">
+        <div class="search-header">
+          <!-- MODIFIKASI: Logo search dengan desain lebih modern -->
+          <div class="logo">
+            <span class="logo-main">BM25</span><span class="logo-secondary">Search</span>
+          </div>
+          
+          <!-- MODIFIKASI: Tagline yang lebih menarik -->
+          <div class="tagline">Sistem Pencarian Pintar untuk Dokumen Digital</div>
+          
+          <!-- MODIFIKASI: Kotak pencarian yang lebih modern -->
+          <div class="search-box">
+            <!-- MODIFIKASI: Form yang mengarah ke endpoint /search dengan metode GET -->
+            <form action="/search" method="GET" class="search-form">
+              <div class="input-wrapper">
+                <div class="search-icon"></div>
+                <input
+                  type="text"
+                  name="q"
+                  class="search-input"
+                  placeholder="Masukkan kata kunci pencarian..."
+                  autofocus
+                  required
+                />
+              </div>
+              <!-- Tombol pencarian yang lebih menarik -->
+              <button type="submit" class="search-button">Cari</button>
+            </form>
+          </div>          <!-- MODIFIKASI: Menghapus fitur-fitur card dan diganti dengan info sederhana -->
+          <div class="search-info">
+            Pencarian cepat dan akurat dengan algoritma BM25
+          </div></div>    </div>
+    <!-- Footer dihapus untuk tampilan yang lebih minimalis -->
+  </body>
+</html>

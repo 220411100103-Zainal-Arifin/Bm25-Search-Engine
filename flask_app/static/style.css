@@ -1,0 +1,622 @@
+/* 
+MODIFIKASI: Styling untuk aplikasi web BM25 Search Engine
+CSS ini menyediakan styling yang bersih dan fungsional untuk aplikasi pencarian
+*/
+
+/* Google Font imports untuk tampilan yang lebih baik */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* MODIFIKASI: Styling dasar untuk keseluruhan halaman */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* Warna latar belakang putih seperti Google */
+  color: #202124;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MODIFIKASI: Container utama dengan lebar maksimum untuk layout yang konsisten */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+}
+
+/* MODIFIKASI: Layout untuk halaman pencarian utama, dengan desain lebih modern */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Menggunakan penuh tinggi layar karena tidak ada footer */
+  padding: 20px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MODIFIKASI: Hero section untuk landing page yang lebih menarik */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* MODIFIKASI: Layout untuk header pencarian */
+.search-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* MODIFIKASI: Styling untuk logo search engine dengan ukuran besar dan desain modern */
+.logo {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-family: "Roboto", Arial, sans-serif;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: -1px;
+  animation: logoAppear 1s ease-out;
+}
+
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MODIFIKASI: Styling warna berbeda untuk setiap bagian logo */
+.logo-main {
+  color: #4285f4;
+  font-weight: 700;
+  padding-right: 5px;
+  position: relative;
+}
+
+.logo-main::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #4285f4;
+  border-radius: 2px;
+  transform: scaleX(0.8);
+  animation: underlineExpand 1.5s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes underlineExpand {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(0.8);
+  }
+}
+
+.logo-secondary {
+  color: #333;
+  font-weight: 300;
+}
+
+/* Tagline styling untuk memberikan informasi tambahan */
+.tagline {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 35px;
+  text-align: center;
+  font-weight: 300;
+  animation: taglineAppear 1.2s ease-out;
+}
+
+@keyframes taglineAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-box {
+  width: 100%;
+  max-width: 850px; /* Lebih lebar dari sebelumnya */
+  position: relative;
+  margin: 0 auto 30px;
+  padding: 10px; /* Lebih tipis dari sebelumnya */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  animation: searchBoxAppear 1s ease-out;
+}
+
+@keyframes searchBoxAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  gap: 8px; /* Gap lebih kecil */
+}
+
+.input-wrapper {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px; /* Radius lebih kecil untuk tampilan tipis */
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: inputAppear 1.2s ease-out;
+}
+
+@keyframes inputAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%239aa0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 10px 20px 10px 10px; /* Padding lebih kecil */
+  font-size: 16px;
+  border: none;
+  outline: none;
+  transition: all 0.2s;
+  width: 100%;
+  height: 40px; /* Lebih tipis dari sebelumnya */
+  background-color: transparent;
+}
+
+.input-wrapper:hover {
+  box-shadow: 0 1px 10px rgba(32, 33, 36, 0.2);
+  transform: translateY(-2px);
+}
+
+.input-wrapper:focus-within {
+  box-shadow: 0 1px 12px rgba(66, 133, 244, 0.4);
+  border-color: #4285f4;
+  transform: translateY(-2px);
+}
+
+.search-button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 24px; /* Radius lebih kecil untuk keseragaman dengan input */
+  padding: 0 25px;
+  height: 40px; /* Lebih tipis sesuai input */
+  cursor: pointer;
+  font-size: 15px; /* Font sedikit lebih kecil */
+  font-weight: 500;
+  transition: all 0.3s;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  animation: buttonAppear 1.4s ease-out;
+}
+
+@keyframes buttonAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-results {
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.search-stats {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.result {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.result-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.result-title a {
+  color: #1a0dab;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.result-title a:hover {
+  text-decoration: underline;
+}
+
+.result-url {
+  color: #006621;
+  font-size: 14px;
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+
+.result-snippet {
+  color: #545454;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.result-score {
+  color: #777;
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.search-results-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #dfe1e5;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.search-results-header .logo {
+  font-size: 1.8rem;
+  margin-right: 20px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.search-results-header .logo-link {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+}
+
+.search-results-header .logo-main::after {
+  height: 3px;
+}
+
+.search-results-header .search-box {
+  flex-grow: 1;
+  max-width: 650px;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.search-results-header .input-wrapper {
+  height: 36px;
+}
+
+.search-results-header .search-input {
+  height: 36px;
+  font-size: 14px;
+  padding: 6px 15px 6px 5px;
+}
+
+.search-results-header .search-button {
+  height: 36px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+/* Menghapus styling navigasi yang tidak digunakan */
+
+/* MODIFIKASI: Tambahan styling untuk informasi pencarian */
+.search-info {
+  color: #5f6368;
+  margin-top: 25px;
+  font-size: 15px;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.5;
+  animation: infoAppear 1.6s ease-out;
+}
+
+@keyframes infoAppear {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Footer yang lebih sederhana */
+.simple-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e4e4e4;
+  padding: 20px;
+  color: #666;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* MODIFIKASI: Footer styling dengan lebih banyak informasi */
+.footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e4e4e4;
+  padding: 40px 20px 20px;
+  color: #666;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  max-width: 350px;
+  text-align: left;
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #4285f4;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.footer-list li:before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  left: 0;
+  top: 7px;
+  border-radius: 50%;
+  background-color: #4285f4;
+}
+
+.copyright {
+  border-top: 1px solid #e4e4e4;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+.search-footer {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+/* Feature cards telah dihapus untuk fokus pada form pencarian dengan animasi */
+
+/* MODIFIKASI: Media queries untuk responsivitas */
+@media (max-width: 900px) {
+  /* Removed feature cards responsive styling */
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 3.5rem;
+  }
+
+  .logo-main::after {
+    height: 3px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+
+  .search-container {
+    padding: 30px 20px;
+  }
+
+  .search-box {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+  /* Feature cards responsive styling removed */
+
+  .search-results {
+    padding: 0 15px;
+  }
+
+  .search-results-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-results-header .logo {
+    margin-bottom: 15px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-list li {
+    padding-left: 0;
+  }
+
+  .footer-list li:before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+  }
+
+  .search-box {
+    padding: 8px;
+  }
+
+  .input-wrapper {
+    height: 38px;
+  }
+
+  .search-input {
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .search-icon {
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .search-button {
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+    padding: 0 15px;
+  }
+
+  .footer {
+    padding: 30px 15px 15px;
+    font-size: 12px;
+  }
+
+  .result-title {
+    font-size: 16px;
+  }
+
+  .result-url {
+    font-size: 12px;
+  }
+}
