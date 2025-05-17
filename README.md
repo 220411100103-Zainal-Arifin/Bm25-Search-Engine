@@ -1145,8 +1145,8 @@ Halaman pencarian utama akan tampil dan Anda dapat langsung mulai mencari dengan
 
 #### Halaman Utama (Search Form)
 
-![Halaman Utama BM25 Search](https://i.imgur.com/fKGTIyV.png)
+![Halaman Utama BM25 Search](test/Screenshot%202025-05-17%20172226.png)
 
 #### Halaman Hasil Pencarian
 
-![Halaman Hasil Pencarian BM25](https://i.imgur.com/yIfL9p5.png)
+![Halaman Hasil Pencarian BM25](test/Screenshot%202025-05-17%20172247.png)
